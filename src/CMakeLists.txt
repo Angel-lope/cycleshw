@@ -13,6 +13,7 @@ add_library(api OBJECT api.cpp)
 link_libraries(api)
 
 #we add my bot as well
-add_executable(client client/client_massimo.cpp)
-#add_executable(client client/client_randomio.cpp)
+
+add_executable(client_randomio client/client_randomio.cpp)
+add_executable(client_massimo client/client_massimo.cpp)
 add_subdirectory(server)
