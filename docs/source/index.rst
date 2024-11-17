@@ -103,7 +103,7 @@ The following script will start the server and some clients:
 		gridHeight: 100
 		gridWidth: 100
 		maxClients: 60
-          	enablePostProcessing: false
+      enablePostProcessing: false
 		EOF
 
 		./build/bin/server &
