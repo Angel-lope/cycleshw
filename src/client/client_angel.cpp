@@ -10,16 +10,13 @@ class BotClient {
     std::string name;
     GameState state;
 
-    // Helper function to check if a position is safe
     bool isSafePosition(sf::Vector2i position) {
         return state.isInsideGrid(position) && state.isCellEmpty(position);
     }
 
     // Decide the best move to avoid edges and other players
     Direction decideMove() {
-        sf::Vector2i currentPosition = state.players[0].position; // Assuming bot is the first player
-
-        // Possible directions and their corresponding vectors
+        sf::Vector2i currentPosition = state.players[0].position;
         std::vector<std::pair<Direction, sf::Vector2i>> moves = {
             {Direction::north, sf::Vector2i(0, -1)},
             {Direction::east, sf::Vector2i(1, 0)},
@@ -27,7 +24,7 @@ class BotClient {
             {Direction::west, sf::Vector2i(-1, 0)}
         };
 
-        // Iterate through moves and prioritize safe ones
+        // to prioratize safe moves
         for (const auto &move : moves) {
             sf::Vector2i newPosition = currentPosition + move.second;
             if (isSafePosition(newPosition)) {
@@ -35,8 +32,8 @@ class BotClient {
             }
         }
 
-        // If no safe move is found (rare), default to staying still
-        return Direction::north; // This could be any direction, chosen arbitrarily
+        // If no safe move is found, it will jut go north
+        return Direction::north; 
     }
 
     void sendMove() {
