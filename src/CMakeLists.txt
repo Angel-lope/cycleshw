@@ -15,5 +15,5 @@ link_libraries(api)
 #we add my bot as well
 
 add_executable(client_randomio client/client_randomio.cpp)
-add_executable(client_massimo client/client_massimo.cpp)
+add_executable(client_angels client/client_angel.cpp)
 add_subdirectory(server)

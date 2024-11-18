@@ -1,8 +1,8 @@
-export CYCLES_PORT=331
+export CYCLES_PORT=3149
 
 cat<<EOF> config.yaml
-gameHeight: 1000
-gameWidth: 1000
+gameHeight: 700
+gameWidth: 700
 gameBannerHeight: 100
 gridHeight: 100
 gridWidth: 100
@@ -13,8 +13,8 @@ EOF
 ./build/bin/server &
 sleep 1
 
-for i in {1..10}
+for i in {1..2}
 do
-./build/bin/client randomio$i &
+./build/bin/client_randomio randomio$i &
 done
-./build/bin/client massimo
+./build/bin/client_angels angel
